@@ -40,8 +40,8 @@ const projects: Project[] = [
       "Attendance Eligibility Validation",
     ],
     tech: ["Java 17", "Spring Boot", "Spring Security", "Spring AI", "React", "Tailwind CSS", "MongoDB Atlas", "Gemini AI", "Stripe", "Cloudinary", "WebSocket", "Render", "Vercel"],
-    demo: "#",
-    github: "#",
+    demo: "https://ignitron-user-panel-steel.vercel.app",
+    github: "https://github.com/Ashutosh-Rout7",
   },
   {
     id: "salon",
@@ -68,7 +68,7 @@ const projects: Project[] = [
       "Secure APIs with JWT & OAuth2, centralized auth via Keycloak",
     ],
     tech: ["Spring Boot", "Spring Cloud", "JPA", "Hibernate", "RabbitMQ", "Eureka", "OpenFeign", "Keycloak", "JWT", "WebSockets", "Stripe", "Razorpay", "MySQL", "React", "Redux Toolkit", "Tailwind CSS", "Axios", "Docker", "Docker Compose"],
-    github: "#",
+    github: "https://github.com/Ashutosh-Rout7",
   },
 ];
 
