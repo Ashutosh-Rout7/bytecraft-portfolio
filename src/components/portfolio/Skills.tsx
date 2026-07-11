@@ -2,8 +2,8 @@ import { Reveal } from "./Reveal";
 
 const groups: { title: string; items: string[] }[] = [
   { title: "Frontend", items: ["HTML", "CSS", "JavaScript", "React.js", "Tailwind CSS", "Bootstrap"] },
-  { title: "Backend", items: ["Java", "Spring Framework", "Spring Boot", "Spring Security", "Spring AI", "MySQL", "MongoDB", "Microservices", "RabbitMQ", "WebSocket", "Redis"] },
-  { title: "Tools", items: ["Maven", "Postman", "IntelliJ IDEA", "Spring Tool Suite", "NetBeans", "Eclipse"] },
+  { title: "Backend", items: ["Java", "Spring Framework", "Spring Boot","Hibernate/JPA", "Spring Security", "Spring AI", "MySQL", "MongoDB", "Microservices","RabbitMQ", "WebSocket", "Redis"] },
+  { title: "Tools", items: ["Maven", "Postman", "IntelliJ IDEA", "Spring Tool Suite", "NetBeans", "Eclipse","VS Code"] },
   { title: "DevOps", items: ["Git", "GitHub", "Docker"] },
 ];
 

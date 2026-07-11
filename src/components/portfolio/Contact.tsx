@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Mail, Github, Linkedin, Send, Check } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import { Reveal } from "./Reveal";
 
 export function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
 
   const validate = () => {
     const e: Record<string, string> = {};
@@ -16,11 +18,34 @@ export function Contact() {
     return Object.keys(e).length === 0;
   };
 
-  const submit = (ev: React.FormEvent) => {
+  const submit = async (ev: React.FormEvent) => {
     ev.preventDefault();
     if (!validate()) return;
-    setSent(true);
-    setTimeout(() => { setSent(false); setForm({ name: "", email: "", message: "" }); }, 2500);
+
+    setSending(true);
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      setSent(true);
+      setTimeout(() => {
+        setSent(false);
+        setForm({ name: "", email: "", message: "" });
+      }, 2500);
+    } catch (err) {
+      console.error("Email failed:", err);
+      setErrors({ message: "Something went wrong. Try emailing me directly." });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -35,13 +60,13 @@ export function Contact() {
               Have a role, a project, or an interesting problem? I'd love to hear about it. I typically reply within a day.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="mailto:your.email@example.com" className="inline-flex items-center gap-2 rounded-md border border-border bg-card/60 px-4 py-2 text-sm font-medium hover:border-primary/60 hover:text-primary">
+              <a href="mailto:ashutoshbiki786@gmail.com" className="inline-flex items-center gap-2 rounded-md border border-border bg-card/60 px-4 py-2 text-sm font-medium hover:border-primary/60 hover:text-primary">
                 <Mail size={16} /> Email
               </a>
-              <a href="https://github.com/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-md border border-border bg-card/60 px-4 py-2 text-sm font-medium hover:border-primary/60 hover:text-primary">
+              <a href="https://github.com/Ashutosh-Rout7" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-md border border-border bg-card/60 px-4 py-2 text-sm font-medium hover:border-primary/60 hover:text-primary">
                 <Github size={16} /> GitHub
               </a>
-              <a href="https://linkedin.com/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-md border border-border bg-card/60 px-4 py-2 text-sm font-medium hover:border-primary/60 hover:text-primary">
+              <a href="https://linkedin.com/in/ashutosh-rout-9ab0b0328" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-md border border-border bg-card/60 px-4 py-2 text-sm font-medium hover:border-primary/60 hover:text-primary">
                 <Linkedin size={16} /> LinkedIn
               </a>
             </div>
@@ -77,10 +102,16 @@ export function Contact() {
               </Field>
               <button
                 type="submit"
-                disabled={sent}
+                disabled={sent || sending}
                 className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:shadow-primary/40 disabled:opacity-70"
               >
-                {sent ? (<><Check size={16} /> Sent — I'll get back to you</>) : (<><Send size={16} /> Send message</>)}
+                {sent ? (
+                  <><Check size={16} /> Sent — I'll get back to you</>
+                ) : sending ? (
+                  <>Sending…</>
+                ) : (
+                  <><Send size={16} /> Send message</>
+                )}
               </button>
             </form>
           </Reveal>

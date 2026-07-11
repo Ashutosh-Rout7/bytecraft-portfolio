@@ -11,12 +11,12 @@ const entries: Entry[] = [
   },
   {
     period: "2023 — 2024",
-    title: "Java Backend Intern",
-    org: "Company Name",
+    title: "Java Fullstack Intern",
+    org: "Smart Programming",
     body: "Contributed REST APIs, JWT auth flows, and MySQL schema design to internal tooling. Migrated a legacy service to Spring Boot 3.",
   },
   {
-    period: "2020 — 2024",
+    period: "2023 — 2027",
     title: "B.Tech, Computer Science",
     org: "Ajay Binay Institute of Technology (ABIT)",
     body: "Coursework in data structures, DBMS, operating systems, and distributed systems.",

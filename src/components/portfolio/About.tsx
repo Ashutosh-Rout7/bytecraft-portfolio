@@ -3,8 +3,8 @@ import { GlowCard } from "./GlowCard";
 
 const facts = [
   { label: "Focus", value: "Java · Spring Boot · React" },
-  { label: "Experience", value: "3+ years" },
-  { label: "Location", value: "Your City, India" },
+  { label: "Experience", value: "Fresher" },
+  { label: "Location", value: "Cuttack, India" },
   { label: "Availability", value: "Open to opportunities", live: true },
 ];
 

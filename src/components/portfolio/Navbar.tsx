@@ -45,7 +45,7 @@ export function Navbar() {
       <div className="glass border-b border-border">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <a href="#top" className="font-display text-lg font-bold tracking-tight">
-            <span className="text-primary">&lt;/&gt;</span> YourName
+            <span className="text-primary">&lt;/&gt;</span> Ashutosh
           </a>
           <ul className="hidden items-center gap-8 md:flex">
             {links.map((l) => (
