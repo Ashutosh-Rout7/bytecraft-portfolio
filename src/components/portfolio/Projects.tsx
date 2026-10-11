@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { ExternalLink, Github, ChevronDown } from "lucide-react";
 import { Reveal } from "./Reveal";
-import ignitronImg from "@/assets/project-ignitron.jpg";
-import salonImg from "@/assets/project-salon.jpg";
+import ignitronImg from "@/assets/project-ignitron.png";
+import salonImg from "@/assets/project-salon.png";
 
 type Project = {
   id: string;
@@ -40,7 +40,7 @@ const projects: Project[] = [
       "Attendance Eligibility Validation",
     ],
     tech: ["Java 17", "Spring Boot", "Spring Security", "Spring AI", "React", "Tailwind CSS", "MongoDB Atlas", "Gemini AI", "Stripe", "Cloudinary", "WebSocket", "Render", "Vercel"],
-    demo: "https://ignitron-user-panel-steel.vercel.app",
+    demo: "https://ignitron-user-panel-steel.vercel.app ",
     github: "https://github.com/Ashutosh-Rout7",
   },
   {
